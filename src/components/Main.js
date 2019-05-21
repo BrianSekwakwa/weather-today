@@ -1,19 +1,47 @@
 import React, { Component } from "react";
-import "../App.css";
-const weatherDisplay = document.querySelector(".display__weather");
 
 class Main extends Component {
   state = {
-    weather: ""
+    weather: "",
+    apiKey: "f2e1751f17c5b88c00e4dfeac793e96c"
   };
 
   fetchData = e => {
-    // console.log(e.target.elements.city.value);
+    const city = e.target.elements.city.value;
+    fetch(
+      `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
+        this.state.apiKey
+      }`
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          weather: data
+        });
+        console.log(this.state.weather);
+      })
+      .catch(err => alert("Could not fetch data: \n" + err));
     e.preventDefault();
-    console.log(weatherDisplay);
   };
 
   render() {
+    let name = "",
+      country = "",
+      weatherCondition = "",
+      weatherDescription = "",
+      temperature = "",
+      humidity = "",
+      pressure = "";
+
+    if (this.state.weather !== "") {
+      name = this.state.weather.name + ",";
+      country = this.state.weather.sys.country;
+      weatherCondition = this.state.weather.weather[0].main + ",";
+      weatherDescription = this.state.weather.weather[0].description;
+      temperature = this.state.weather.main.temp + " (Kelvin)";
+      humidity = this.state.weather.main.humidity + "%";
+      pressure = this.state.weather.main.pressure + " hPa";
+    }
     return (
       <div className="display">
         <form onSubmit={this.fetchData} action="" className="display__form">
@@ -21,17 +49,21 @@ class Main extends Component {
           <button>Search</button>
         </form>
         <div className="display__weather">
-          <p>London, GB</p>
-          <p>Drizzle, light intensity drizzle</p>
+          <p>
+            {name} {country}
+          </p>
+          <p>
+            {weatherCondition} {weatherDescription}
+          </p>
           <div className="display__weather__results">
             <p>
-              <span>Temperature:</span>{" "}
+              <span>Temperature:</span> {temperature}
             </p>
             <p>
-              <span>Humidity:</span>{" "}
+              <span>Humidity:</span> {humidity}
             </p>
             <p>
-              <span>Pressure:</span>{" "}
+              <span>Pressure:</span> {pressure}
             </p>
           </div>
         </div>
