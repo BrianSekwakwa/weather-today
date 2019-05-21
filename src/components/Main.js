@@ -18,7 +18,6 @@ class Main extends Component {
         this.setState({
           weather: data
         });
-        console.log(this.state.weather);
       })
       .catch(err => alert("Could not fetch data: \n" + err));
     e.preventDefault();
@@ -38,7 +37,8 @@ class Main extends Component {
       country = this.state.weather.sys.country;
       weatherCondition = this.state.weather.weather[0].main + ",";
       weatherDescription = this.state.weather.weather[0].description;
-      temperature = this.state.weather.main.temp + " (Kelvin)";
+      temperature =
+        Math.round(this.state.weather.main.temp - 273.15) + " celcius";
       humidity = this.state.weather.main.humidity + "%";
       pressure = this.state.weather.main.pressure + " hPa";
     }
