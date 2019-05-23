@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/weather-today/static/css/main.c37b9b53.chunk.css",
+    "main.js": "/weather-today/static/js/main.1e03b7e0.chunk.js",
+    "main.js.map": "/weather-today/static/js/main.1e03b7e0.chunk.js.map",
+    "runtime~main.js": "/weather-today/static/js/runtime~main.b06225ba.js",
+    "runtime~main.js.map": "/weather-today/static/js/runtime~main.b06225ba.js.map",
+    "static/js/2.65aa1cca.chunk.js": "/weather-today/static/js/2.65aa1cca.chunk.js",
+    "static/js/2.65aa1cca.chunk.js.map": "/weather-today/static/js/2.65aa1cca.chunk.js.map",
+    "index.html": "/weather-today/index.html",
+    "precache-manifest.d503d80d582ab3b6efc056d33c2bd861.js": "/weather-today/precache-manifest.d503d80d582ab3b6efc056d33c2bd861.js",
+    "service-worker.js": "/weather-today/service-worker.js",
+    "static/css/main.c37b9b53.chunk.css.map": "/weather-today/static/css/main.c37b9b53.chunk.css.map",
+    "static/media/App.css": "/weather-today/static/media/clouds.d652a16b.jpg"
+  }
+}
